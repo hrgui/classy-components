@@ -5,7 +5,7 @@
   "main": "index.js",
   "author": "Harman Goei",
   "license": "MIT",
-  "repository": "hrgui/classy-components.js",
+  "repository": "hrgui/classy-components",
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "eslint": "^3.15.0",
