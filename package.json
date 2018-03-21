@@ -1,6 +1,6 @@
 {
   "name": "@hrgui/classy-components",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Creates React components with specified CSS classes",
   "main": "dist/bundle.js",
   "module": "index.js",
