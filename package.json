@@ -1,6 +1,6 @@
 {
   "name": "@hrgui/classy-components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Creates React components with specified CSS classes",
   "main": "index.js",
   "author": "Harman Goei",
