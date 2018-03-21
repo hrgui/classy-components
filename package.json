@@ -1,11 +1,11 @@
 {
-  "name": "classy-components",
+  "name": "@hrgui/classy-components",
   "version": "0.1.0",
   "description": "Creates React components with specified CSS classes",
   "main": "index.js",
-  "author": "Samuel Kaiser",
+  "author": "Harman Goei",
   "license": "MIT",
-  "repository": "sk22/classy-components.js",
+  "repository": "hrgui/classy-components.js",
   "devDependencies": {
     "babel-eslint": "^7.1.1",
     "eslint": "^3.15.0",

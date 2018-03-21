@@ -1,72 +1,19 @@
-# <🎩>
-# classy components
+# @hrgui/classy-components
 
-inspired by [styled components][styled]
+This is a forked copy of [sk22/classy-components](https://github.com/sk22/classy-components.js). Please see for original changes and manual.
 
-[![npm downloads](https://img.shields.io/npm/dt/classy-components.svg?style=flat-square)][npm]
-[![npm](https://img.shields.io/npm/v/classy-components.svg?style=flat-square)][npm]
-
-Classy Components creates React components that have certain CSS classes.
-
-```javascript
-import classy from 'classy-components';
-import './style.css';
-
-const Red = classy.div`red-bg`
-
-export default () => <Red>I have a red background!</Red>
-// => <div class="red-bg">I have a red background!</div>
-```
-
-```css
-.red-bg {
-  background: red;
-}
-```
+This has a couple of additional bugfixes and additional features described below, and is under the @hrgui alias.
 
 ## Installation
-Use `yarn` or `npm` to include it into your React project.
 
-```
-yarn add classy-components
-```
-
-## Usage
-Using template literals, you can spread a list of classes over many lines.
-This comes in useful when you're using some CSS framework like
-[Material Components Web][mdc].
-
-```javascript
-const Toolbar = classy.div`
-  mdc-theme--primary-bg
-  mdc-theme--text-primary-on-primary
-  mdc-typography--title
-  mdc-elevation--z4
-`;
+```bash
+yarn install @hrgui/classy-components
 ```
 
-Another way is to use an array.
+## Bugfixes
 
-```javascript
-const Toolbar = classy.div([
-  'mdc-theme--primary-bg',
-  'mdc-theme--text-primary-on-primary',
-  'mdc-typography--title',
-  'mdc-elevation--z4',
-]);
-```
-
-You can also just pass in a regular string.
-
-```javascript
-const Button = classy.button('btn');
-```
-
-## Inheritance
-If you need your components to have additional classes while inheriting the
-parent's ones, you can do that as follows.
-
-```javascript
+### Standard function notation
+```jsx
 const Button = classy.button('btn');
 // => <button class="btn">
 
@@ -74,24 +21,37 @@ const PrimaryButton = classy(Button)('btn-primary');
 // => <button class="btn btn-primary">
 ```
 
-You can also use the other syntaxes such as the template literal with this.
+would return `b t b t` previously. Now it returns `btn btn-primary`
 
-```javascript
-const SecondaryButton = classy(Button)`btn-secondary`;
-// => <button class="btn btn-secondary">
+## Additional features
+
+### Created component can have props.className as an added class
+
+Before:
+```jsx
+const Button = classy.button('btn');
+// => <button class="btn">
+<Button className="hello"></Button>
+// => <button class="hello">
 ```
 
+After:
+```jsx
+const Button = classy.button('btn');
+// => <button class="btn">
+<Button className="hello btn"></Button>
+// => <button class="hello btn">
+```
 
-### Similar
-You might be interested in [@mephju][mephju]'s [classed-components][classed].
-It is basically another implementation of about the same features.
+### Interpolation through tagged literals w/ functions (combines features from [@memphju/classed-components](https://github.com/mephju/classed-components/))
 
-[styled]: https://github.com/styled-components/styled-components/
-[classed]: https://github.com/mephju/classed-components/
-[mephju]: https://github.com/mephju/
-[mdc]: https://github.com/material-components/material-components-web/
-[classnames]: https://github.com/JedWatson/classnames
-[npm]: https://www.npmjs.com/package/classy-components
+```jsx
+const Button = classy.button`green ${props => props.className}`
 
-### License
-[MIT](https://github.com/sk22/classy-components.js/blob/master/LICENSE)
+<Button className="hello btn"></Button>
+// => <button class="green hello btn">
+```
+
+## References
+- [sk22/classy-components](https://github.com/sk22/classy-components.js)
+- [@memphju/classed-components](https://github.com/mephju/classed-components/)
